@@ -1,0 +1,9 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to 'Home', root_path, class: 'btn btn-default navbar-btn'
+      - if current_user.present?
+        = link_to 'Edit my account', edit_user_path(current_user), class: 'btn btn-default navbar-btn'
+        = link_to 'All categories', categories_path, class: 'btn btn-default navbar-btn'
+        = link_to 'All products', products_path, class: 'btn btn-default navbar-btn'
+        = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-default'

@@ -1,0 +1,26 @@
+h1 Listing products
+
+table.table.table-hover
+  thead
+    tr
+      th Name
+      th Category
+      th Description
+      th Image
+      th
+
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.name
+        td = product.category_name
+        td = product.description
+        td = image_tag product.image.url(:thumb)
+        td 
+          .btn-group
+            = link_to 'Show', product, class: 'btn btn-primary btn-xs'
+            = link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-xs' if current_user.is_admin?
+            = link_to 'Destroy', product, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-primary btn-xs' if current_user.is_admin?
+br
+
+= link_to 'New Product', new_product_path, class: 'btn btn-default' if current_user.is_admin?

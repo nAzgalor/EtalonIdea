@@ -1,0 +1,26 @@
+p#notice = notice
+
+h1 Category name #{@category.name}
+
+table.table.table-hover
+  thead
+    tr
+      th Name
+      th Category
+      th Description
+      th Image
+      th
+
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.name
+        td = product.category_name
+        td = product.description
+        td = image_tag product.image.url(:thumb)
+        td = link_to 'Show', product, class: 'btn btn-primary'
+
+
+= link_to 'Edit', edit_category_path(@category)
+'|
+= link_to 'Back', categories_path

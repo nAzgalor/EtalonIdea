@@ -1,0 +1,18 @@
+p#notice = notice
+
+dl.dl-horizontal.text-left
+  dt Name
+  dd = @product.name
+  hr
+  dt Category
+  dd = @product.category_name
+  hr
+  dt Description
+  dd = @product.description
+  hr
+  dt Image
+  dd = image_tag @product.image.url(:thumb)
+  hr
+= link_to 'Edit', edit_product_path(@product)
+'|
+= link_to 'Back', products_path

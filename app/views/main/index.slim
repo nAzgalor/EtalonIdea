@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title Etalon Idea
+  .panel-body
+    - if current_user.present?
+      h1 Hi it is test work
+    - else
+      = link_to 'Sign In', new_user_session_path, class: 'btn btn-default'
+      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary'

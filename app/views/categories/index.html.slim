@@ -1,0 +1,19 @@
+h1 Listing categories
+
+table.table.table-hover
+  thead
+    tr
+      th Name
+      th action
+
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.name
+        td 
+          .btn-group
+            = link_to 'Show', category, class: 'btn btn-primary btn-xs'
+            = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary btn-xs' if current_user.is_admin?
+            = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-primary btn-xs' if current_user.is_admin?
+
+= link_to 'New Category', new_category_path, class: 'btn btn-default' if current_user.is_admin?
